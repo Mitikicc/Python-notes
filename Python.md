@@ -228,5 +228,91 @@ for <variable> in <sequence>:
 else：
     子代码模块2
 
+>>> for i in range(9):
+	if i!=0:
+		if i%2==0:
+			print('%d是偶数'%(i))
+
+			
+2是偶数
+4是偶数
+6是偶数
+8是偶数
+```
+
+#### 循环控制语句
+
+当初学c语言的时候没搞懂的东西
+
+##### break语句
+
+```python
+#只要记住一句话：执行到break语句，跳出当前for循环，循环结束。
+```
+
+##### continue语句
+
+```python
+#满足条件，continue使循环到开始处，继续循环，忽略continue后的代码执行
+>>> for i in range(1,9):
+	if i%2!=0:
+		continue
+	print('%d是偶数'%(i))
+
+	
+2是偶数
+4是偶数
+6是偶数
+8是偶数
+```
+
+### 练习
+
+```python
+#for循环实现求10的因数，把求得的因数放在一个字符串上，并打印10的所有因数和因数累加和。
+>>> c=b=0
+>>> a=''
+>>> for i in range(1,11):
+	if 10%i==0:
+		a=a+str(i)+','
+		b=b+i
+		c=c+i
+
+		
+>>> print('10的所有因素为 %s，因素累加和为%d'%(a,c))
+10的所有因素为 1,2,5,10,，因素累加和为18
+#while循环实现
+>>> i=1
+>>> result=''
+>>> total=0
+>>> while i<=10:
+>>>    if 10%i==0:
+>>>        result=result+str(i)+','
+>>>        total+=i
+>>>   i+=1
+>>>
+>>>   
+>>> print('10的所有因素为 %s，因素累加和为%d'%(result,total))
+
+10的所有因素为 1,2,5,10,，因素累加和为18
+#---------------------------------------------------------------------------------------
+#文本字符统计：结合ASCLL表，统计text文本中英文字母、汉字、数字、符号的数量：
+-- text='中国+china2017是-*/OK很难a也不难'
+>>>i=zimu=hanzi=shuzi=fuhao=0
+>>>text='中国+china2017是-*/OK很难a也不难'
+>>>tol=len(text)
+>>>while i<tol:
+>>>    if 'a'<text[i]<'z' or 'A'<text[i]<'Z':
+>>>        zimu+=1
+>>>    elif '0'<=text[i]<='9':
+>>>        shuzi+=1
+>>>    elif ord(text[i])>127:
+>>>        hanzi+=1
+>>>    else:
+>>>        fuhao+=1
+>>>    i+=1
+>>>print('字母、汉字、数字、符号的数量分别是%d,%d,%d,%d'%(zimu,hanzi,fuhao,shuzi))
+
+字母、汉字、数字、符号的数量分别是6,8,6,4
 ```
 
