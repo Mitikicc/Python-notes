@@ -1,7 +1,7 @@
 # Python-notes
 为了学Django，迫不得已。从最基础的记起，尽量详细。
 
-
+参考廖雪峰官网python教程以及某python书。
 
 
 
@@ -77,6 +77,15 @@ xi
 这段话将被复制三遍
 这段话将被复制三遍
 --所以说字符串的乘法就是复制
+```
+
+##### 要计算`str`包含多少个字符，可以用`len()`函数：
+
+```python
+>>> len('ABC')
+3
+>>> len('中文')
+2
 ```
 
 
@@ -314,5 +323,162 @@ else：
 >>>print('字母、汉字、数字、符号的数量分别是%d,%d,%d,%d'%(zimu,hanzi,fuhao,shuzi))
 
 字母、汉字、数字、符号的数量分别是6,8,6,4
+```
+
+
+
+## 列表与元组
+
+### 列表(List)
+
+#### 基本知识
+
+Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。
+
+用中括号表示列表的开始和结束，元素之间逗号隔开。
+
+```python
+>>> list1=[]
+>>> list1
+[]
+>>> len(list1)
+0
+
+>>> classmates = ['Michael', 'Bob', 'Tracy']
+>>> classmates
+['Michael', 'Bob', 'Tracy']
+>>> len(classmates)
+3
+```
+
+列表的下标和字符串相同，从0开始，len(list)-1结束
+
+```python
+>>> classmates[0]
+'Michael'
+>>> classmates[1]
+'Bob'
+>>> classmates[2]
+'Tracy'
+```
+
+获取倒数第几个元素时，用负数
+
+```python
+>>> classmates[-1]
+'Tracy'
+>>> classmates[-2]
+'Bob'
+>>> classmates[-3]
+'Michael'
+>>> classmates[-0]
+'Michael'
+#注意classmates[-0]就是第一个元素
+```
+
+#### 基本操作
+
+applend() 列表尾部追加元素
+
+```python
+>>> classmates.append('Adam')
+>>> classmates
+['Michael', 'Bob', 'Tracy', 'Adam']
+```
+
+insert() 列表任意位置插入元素，注意插入的位置，数字是几就在几号元素前插入
+
+```PYTHON
+>>> classmates.insert(1,'Jack')
+>>> classmates
+['Michael', 'Jack', 'Bob', 'Tracy', 'Adam']
+```
+
+pop(i) 删除列表指定位置元素
+
+```python
+>>> classmates.pop()
+'Adam'
+>>> classmates.pop(1)
+'Jack'
+>>> classmates
+['Michael', 'Bob', 'Tracy']
+```
+
+列表元素的替换：直接赋值
+
+```python
+>>> classmates[1] = 'Sarah'
+>>> classmates
+['Michael', 'Sarah', 'Tracy']
+```
+
+List里面的元素可以是各种数据类型，也可以是另外一个List
+
+```python
+>>> s = ['python', 'java', ['asp', 'php'], 'scheme']
+>>> len(s)
+4
+>>> s[2][1]
+'php'
+```
+
+### 元组(Tuple)
+
+元组与列表的不同之处在于
+
+（1）元组不可被修改，而列表允许
+
+（2）元组用小括号（）表示
+
+```python
+>>> classmates = ('Michael', 'Bob', 'Tracy')
+```
+
+一旦被定义后就不可被修改，没有append()，insert()这样的方法。
+
+不可改的一个好处就是安全。
+
+#### 基本知识
+
+注意元组的定义
+
+```python
+>>> tuple1=()
+>>> tuple1
+()
+
+>>> tuple2=(1,)
+>>> tuple2
+(1,)
+
+>>> tuple3=(1)
+>>> tuple3
+1
+--出来是一个数，表名tuple3不是元组，所以定义一个元素的元组时必须加上逗号
+```
+
+## 字典(Dict)
+
+和字典是无序集合，以键值对为基本元素可以存放各种数据类型
+
+所谓键值对就是由键（Key）和值（Value）组成，中间冒号隔开
+
+用大括号{}表示开始和结束，中间用逗号，隔开
+
+字典体现了紧密的一对一关系，用来当作查询功能
+
+```python
+>>> d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}
+>>> d['Bob']    #注意这里是中括号
+75
+```
+
+把数据放入dict的方法，除了初始化时指定外，还可以通过key放入：
+
+```python
+>>> d['xcx']=18
+>>> d['xcx']
+18
 ```
 
